@@ -17,7 +17,7 @@ console.log('Server running at http://localhost:3000/'); */
 
 var fs = require('fs');
 console.log("Going to read the file");
-var data = fs.readFileSync('example.txt');
+var data = fs.readFileSync('c:/Users/khell/OneDrive/Asiakirjat/GitHub/R0314-MERN/FullStack/Lesson2/example.txt');
 
 console.log(data.toString());
 

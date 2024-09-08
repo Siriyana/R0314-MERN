@@ -7,8 +7,71 @@
     <link rel="stylesheet" href="js2.css">
 </head>
 <body>
-
+    <h1>Anna nimesi:</h1>
+    <form name="omaLomake1" action="#" onsubmit="tarkasta1(event)" method="post">
+        Etunimi : <input type="text" name="enimi" /><br />
+        Sukunimi : <input type="text" name="snimi" /><br />
+        <input type="submit" value="Lähetä" />
+    </form><br>
+    <form name="omaLomake2" action="#" method="post">
+        Etunimi : <input type="text" name="enimi" /><br />
+        Sukunimi : <input type="text" name="snimi" /><br />
+        <input type="button" onclick="tarkasta2()" value="Lähetä" />
+    </form><br>
+    <form name="omaLomake3" action="#" method="post">
+        Etunimi : <input type="text" name="enimi" required/><br />
+        Sukunimi : <input type="text" name="snimi" required/><br />
+        Sähköposti: <input type="email" name="sposti" id="sposti" required /><br />
+        <input type="submit" value="Lähetä" />
+    </form><br>
  
+    <div>
+        <input type="checkbox" id="coding" name="interest" value="coding">
+        <label for="coding">Koodaus</label>
+    </div>
+    <div>
+        <input type="checkbox" id="music" name="interest" value="music">
+        <label for="music">Musiikki</label>
+    </div>
+    <div>
+        <input type="checkbox" id="gaming" name="interest" value="gaming">
+        <label for="gaming">Pelaaminen</label>
+    </div>
+    <div>
+        <input type="checkbox" id="sports" name="interest" value="sports">
+        <label for="sports">Pelaaminen</label>
+    </div>
+    <div>
+        <input type="checkbox" id="cooking" name="interest" value="cooking">
+        <label for="cooking">Ruuanlaitto</label>
+    </div>
+
+    <div class="container">
+        <form id="form" action="/">
+            <h1>Registration</h1>
+            <div class="input-control">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password2">Password again</label>
+                <input id="password2" name="password2" type="password">
+                <div class="error"></div>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
 
     <script src="js2.js"></script>
 </body>
