@@ -14,10 +14,10 @@ fs.readFile('c:/Users/khell/OneDrive/Asiakirjat/GitHub/R0314-MERN/FullStack/Work
         }
 
         // Yhdistetään molempien tiedostojen sisältö
-        const combinedData = data1 + "\n" + data2;
+        const combinedData = "\nI wrote this, best regards Veera\n" + data1 + "\n" + data2 + "\nI wrote this, best regards Veera";
 
         // Kirjoitetaan yhdistetty sisältö uuteen tiedostoon
-        fs.writeFile('example3.txt', combinedData, (err) => {
+        fs.writeFile('c:/Users/khell/OneDrive/Asiakirjat/GitHub/R0314-MERN/FullStack/Workshops/example3.txt', combinedData, (err) => {
             if (err) {
                 return console.error(err);
             }
