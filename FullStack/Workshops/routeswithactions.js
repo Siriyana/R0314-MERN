@@ -7,8 +7,7 @@ http.createServer(function(req, res){
     if(req.url === "/hello"){
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.end('hello world\n');
-    }
-    else if(req.url === '/frontpage'){
+    }else if(req.url === '/frontpage'){
         res.writeHead(200, {'Content-Type': 'text/html'});
         fs.readFile('c:\\Users\\khell\\OneDrive\\Asiakirjat\\GitHub\\R0314-MERN\\FullStack\\Workshops\\frontpage.html', 'utf8', (err, frontData)=>{
             if(err){
