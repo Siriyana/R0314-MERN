@@ -1,0 +1,243 @@
+html {
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(242, 243, 244);
+}
+
+body {
+    margin: 0px;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+}
+
+header {
+    max-height: 250px;
+    background: rgba(0, 0, 0, 0.479);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.parallax {
+    background-image: url(christmas-9095_256.gif);
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#navigointi {
+    width: 100%;
+    background-color: black;
+    position: relative;
+   }
+
+#navigointi nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+li a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size:medium;
+}
+
+#navigointi ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 0px;
+}
+
+#navigointi ul li {
+    margin: 5px;
+    padding: 15px 5px;
+    text-align: center;
+}
+
+.navlink:hover {
+    background-color: rgb(43, 61, 141);
+    border-radius: 10px;
+    padding: 15px 5px;
+}
+
+
+header h1 {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 1px 6px black;
+    font-size: 60px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.tietoisku {
+    padding: 10px;
+    background-color: whitesmoke;
+    text-align: center;
+    width: 80%;
+    margin: 35px 10px;
+    border: 5px solid white;
+    box-shadow: 3px 3px 20px -10px rgba(0, 0, 0, 0.613);
+    border-radius: 100px;
+    line-height: 1.3;
+}
+
+.ilmatieteenlaitos {
+    width: 80%;
+    margin: 35px 10px;
+    padding: 10px;
+    border: 10px double black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: whitesmoke;
+    border: 5px solid white;
+    box-shadow: 3px 3px 20px -10px rgba(0, 0, 0, 0.613);
+    border-radius: 100px;
+}
+
+.ilmatieteenlaitos p {
+    width: 100%;
+}
+
+.ilmatieteenlaitos img {
+    width: 70%;
+    height: auto;
+    padding: 10px 15%;
+    border-radius: 10px;
+}
+
+.video {
+    width: 90%;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    border: 5px solid white;
+    box-shadow: 3px 3px 20px -10px rgba(0, 0, 0, 0.613);
+    border-radius: 100px;
+    background-color: white;
+}
+
+.video h2 {
+    width: 100%;
+}
+
+.video video {
+    width: 80%;
+    border-radius: 15px;
+}
+
+.video p {
+    width: 100%;
+}
+
+
+aside {
+    width: 100%;
+    border: 1px double black;
+    color: white;
+    background-color: rgb(2, 22, 75);
+    border-radius: 15px;
+    box-shadow: 0 0 25px white;
+    padding: 7px;
+}
+
+aside p {
+    padding: 5px;
+}
+
+
+aside figure {
+    width: 90%;
+    padding: 2.5%;
+    margin: 2.5%;
+}
+
+aside img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    width: 100%;
+}
+
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px;
+}
+
+footer ul li {
+    font-size: smaller;
+    padding: 10px;
+}
+
+footer ol li {
+    margin: 5px;
+    padding: 2px;
+}
+
+footer h4 {
+    margin: 0px;
+    font-size: medium;
+}
+
+@media screen and (min-width: 800px) {
+    .video {
+        width: 45%;
+    }
+
+    .page-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    main {
+        width: 70%;
+        margin: 0px;
+    }
+
+    aside {
+        width: 18%;
+        line-height: 2;
+        margin: 35px 0px;
+    }
+
+    aside img {
+        width: 100%;
+        padding: 25px 5px;
+    }
+
+    footer ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
