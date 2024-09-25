@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+    .myStyle {
+        background-color: coral;
+        padding: 16px;
+    }
+    </style>
+
+</head>
+<body>
+    
+    <h1>Anna nimesi</h1>
+    <form name="omaLomake1" action="#" onsubmit="tarkasta1(evet)" method="post">
+        Etunimi: <input type="text" name="enimi" id="enimi" /><br>
+        Sukunimi: <input type="text" name="snimi" id="snimi" /><br>
+        <input type="submit" value="Lähetä" />
+    </form><br />
+
+    <form name="omaLomake2" action="#" method="post">
+        Etunimi: <input type="text" name="enimi" id="enimi" /><br>
+        Sukunimi: <input type="text" name="snimi" id="snimi" /><br>
+        <input type="submit" onclick="tarkasta2()" value="Lähetä" />
+    </form><br />
+
+    <h2>Toggle myStyle</h2>
+    <div id="myDiv">
+        <p>I am MyDIV</p>
+    </div>
+    <button onclick="toggle()">Toggle</button>
+
+    <h2>Checkboxes</h2>
+    <div>
+        <input type="checkbox" id="coding" name="interest" value="coding">
+        <label for="coding">Koodaus</label>
+    </div>
+    <div>
+        <input type="checkbox" id="music" name="interest" value="music">
+        <label for="music">Musiikki</label>
+    </div>
+    <div>
+        <input type="checkbox" id="gaming" name="interest" value="gaming">
+        <label for="gaming">Pelaaminen</label>
+    </div>
+    <div>
+        <input type="checkbox" id="sports" name="interest" value="sports">
+        <label for="sports">Urheilu</label>
+    </div>
+    <div>
+        <input type="checkbox" id="cooking" name="interest" value="cooking">
+        <label for="cooking">Ruuanlaitto</label>
+    </div>
+
+    <script src="jsforms.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Greeting</title>
+    <link rel="stylesheet" href="local.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to our website</h1>
+    </header>
+
+    <div class="content">
+        <!-- Personalized greeting message -->
+        <p class="personal-greeting">Welcome to our website. We hope you have fun while you are here.</p>
+
+        <!-- Form to enter the name -->
+        <div class="remember">
+            <form id="entername">
+                <label for="nameInput">Enter your name:</label>
+                <input type="text" id="nameInput" required>
+                <button type="submit" id="submitname">Say hello</button>
+            </form>
+        </div>
+
+        <!-- Forget button (initially hidden) -->
+        <div class="forget">
+            <p>Want to forget your name?</p>
+            <button id="forgetname">Forget me</button>
+        </div>
+    </div>
+
+    <!-- Footer with dynamic copyright -->
+    <footer>
+        <p class="copyright">© 2024. All rights reserved. This is a fictional website.</p>
+    </footer>
+
+    <script src="local.js"></script>
+</body>
+</html>
