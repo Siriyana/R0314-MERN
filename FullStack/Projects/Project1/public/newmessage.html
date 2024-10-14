@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Meow-ssage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav role="navigation">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/guestbook">Guestbook </a></li>
+            <li><a href="/newmessage">Send message</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Write a message! &lt;3 </h1>
+    </header>
+
+    <main>
+
+        <article>
+            <div class="writemessage">
+                <h2>Jätä viesti tai jaa kokemuksiasi</h2>
+                <form action="/newmessage" method="post">
+                    <input type="text" name="name" placeholder="Nimi" required>
+                    <input type="text" name="country" placeholder="Maa" required>
+                    <textarea name="message" rows="5" placeholder="Kirjoita viestisi" required></textarea>
+                    <button type="submit">Lähetä</button>
+                </form>
+            </div>
+        </article>
+
+        <article>
+            <h2>Meow!</h2>
+        </article>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+</body>
+</html>
