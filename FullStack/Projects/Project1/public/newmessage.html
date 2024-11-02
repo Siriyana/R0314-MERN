@@ -13,6 +13,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/guestbook">Guestbook </a></li>
             <li><a href="/newmessage">Send message</a></li>
+            <li><a href="/ajaxmessage">Ajax-messages</a></li>
         </ul>
     </nav>
 
@@ -26,10 +27,10 @@
             <div class="writemessage">
                 <h2>Jätä viesti tai jaa kokemuksiasi</h2>
                 <form action="/newmessage" method="post">
-                    <input type="text" name="name" placeholder="Nimi" required>
-                    <input type="text" name="country" placeholder="Maa" required>
-                    <textarea name="message" rows="5" placeholder="Kirjoita viestisi" required></textarea>
-                    <button type="submit">Lähetä</button>
+                    <input type="text" name="name" placeholder="Nimi" required> <span id="tarkitus1"></span>
+                    <input type="text" name="country" placeholder="Maa" required><span id="tarkistus2"></span>
+                    <textarea name="message" rows="5" placeholder="Kirjoita viestisi" required></textarea><span id="tarkistus3"></span>
+                    <button type="submit" id="submitMessage">Lähetä</button>
                 </form>
             </div>
         </article>
@@ -45,6 +46,6 @@
 
     </footer>
 
-
+    <script src="message.js"></script>
 </body>
 </html>

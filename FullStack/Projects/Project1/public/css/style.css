@@ -106,13 +106,10 @@ img {
 
 .writemessage button {
     padding: 10px 20px;
-    background-color: #ff6f61;
+    background-color: palevioletred;
     color: #000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-@media screen and (min-width: 800px) {
-
-}

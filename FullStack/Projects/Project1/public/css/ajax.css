@@ -1,0 +1,17 @@
+html, body {
+    background-color: palevioletred !important;
+}
+
+#container text-center {
+    background-color: palevioletred !important;
+}
+
+#submitMessage {
+    background-color: rgb(212, 45, 101); 
+    color: white; 
+    border: 2px solid black; 
+}
+
+#submitMessage:hover {
+    background-color: #5f0037; 
+}

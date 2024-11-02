@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog page</title>
+</head>
+<body>
+    <h1><%- heading %></h1>
+    <ul>
+        <% for (let i = 0; i < listItems.length; i++) { %>
+            <% if (listItems[i] === "Butter") { %> <!-- Tarkistetaan yksittäinen listan item -->
+                <li style="background-color: yellow;"><%- listItems[i] %></li>
+            <% } else { %>
+                <li><%- listItems[i] %></li>
+            <% } %>
+        <% } %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/ajax.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Ajax-messages</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/guestbook">Guestbook </a></li>
+                <li class="nav-item"><a class="nav-link" href="/newmessage">Send message</a></li>
+                <li class="nav-item active" aria-current="page"><a class="nav-link" href="/ajaxmessage">Ajax-messages</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container text-center">
+        <h1>AJAX-guestbook 
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-envelope-open-heart-fill" viewBox="0 0 16 16">
+                <path d="M8.941.435a2 2 0 0 0-1.882 0l-6 3.2A2 2 0 0 0 0 5.4v.313l4.222 2.475q.035-.087.08-.17c.665-1.3 2.362-1.917 3.698-1.25 1.336-.667 3.033-.05 3.699 1.25a3 3 0 0 1 .08.17L16 5.713V5.4a2 2 0 0 0-1.059-1.765zM0 6.873l4 2.344c-.012.542.124 1.117.416 1.694l.004.006L0 13.372v-6.5Zm.059 7.611 4.9-2.723c.563.73 1.383 1.467 2.49 2.198l.551.365.551-.365c1.107-.73 1.927-1.467 2.49-2.198l4.9 2.723A2 2 0 0 1 14 16H2a2 2 0 0 1-1.941-1.516M16 13.372l-4.42-2.455.004-.006c.292-.577.428-1.152.415-1.694L16 6.873v6.5Z"/>
+                <path d="M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-hearts" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.931.481c1.627-1.671 5.692 1.254 0 5.015-5.692-3.76-1.626-6.686 0-5.015m6.84 1.794c1.084-1.114 3.795.836 0 3.343-3.795-2.507-1.084-4.457 0-3.343M7.84 7.642c2.71-2.786 9.486 2.09 0 8.358-9.487-6.268-2.71-11.144 0-8.358"/>
+          </svg></h1>
+        </div>
+    </header>
+    
+    <main>
+
+        <article>
+            <div class="container text-center">
+            <h1>Leave a Message:</h1>
+            <form name="leaveMessage" action="#" method="post">
+                <div class="mb-3">
+                    <input type="text" name="name" placeholder="Nimi" required> <span id="tarkitus1"></span>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="country" placeholder="Maa" required><span id="tarkistus2"></span>
+                </div>
+                <div class="mb-3">
+                    <textarea name="message" rows="5" placeholder="Kirjoita viestisi" required></textarea><span id="tarkistus3"></span>
+                </div>
+                <button type="submit" class="btn" id="submitMessage">Lähetä</button>
+            </form><br>
+            </div>
+        </article>
+
+        <article>
+            <div class="container text-center">
+                <div id="guestbook-messages"> </div>
+            </div>
+        </article>
+        
+    </main>
+
+    <script src="ajax.js"></script>
+</body>
+</html>

@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 
 //Lets take body-parser in use
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,7 +19,7 @@ app.get('/', function(req, res){
 
 app.get('/guestbook', function (req, res) {
 
-    fs.readFile('./guestbook_messages.json', 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, 'guestbook_messages.json'), 'utf8', (err, data) => {
         if (err) throw err;
         const messages = JSON.parse(data);
 
@@ -52,6 +53,7 @@ app.get('/guestbook', function (req, res) {
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">Guestbook</a></li>
                     <li><a href="newmessage.html">Send message</a></li>
+                    <li><a href="ajaxmessage.html">Ajax-messages</a></li>
                 </ul>
             </nav>
 
@@ -86,29 +88,52 @@ app.get('/newmessage', function(req, res) {
 
 //Route for form sending the POST data
 app.post('/newmessage', function (req, res) {
-    var data = require('./guestbook_messages.json');
-
-    var newID = data.length + 1;
-    data.push({
-        "id": newID,
-        "Date": new Date(),
-        "Name": req.body.name,
-        "Country": req.body.country,
-        "Message": req.body.message,
+    fs.readFile(path.join(__dirname, 'guestbook_messages.json'), 'utf8', (err, data) => {
+        var messages = JSON.parse(data);
+        var newID = messages.length + 1;
+        messages.push({
+            "id": newID,
+            "Date": new Date(),
+            "Name": req.body.name,
+            "Country": req.body.country,
+            "Message": req.body.message,
+        });
+        //Write data to a file
+        fs.writeFile(path.join(__dirname, 'guestbook_messages.json'), JSON.stringify(messages), (err) => {
+            if (err) throw err;
+            console.log('It\´s saved!');
+            res.redirect('/guestbook');
+        });
     });
-    //convert the JSON object to a string format
-    var jsonStr = JSON.stringify(data);
-    //Write data to a file
-    fs.writeFile('./guestbook_messages.json', jsonStr, (err) => {
-        if (err) throw err;
-        console.log('It\´s saved!');
-    });
-    res.redirect('/guestbook');
 });
 
 app.get('/ajaxmessage', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'ajaxmessage.html'));
 });
+
+app.post('/ajaxmessage', function (req, res) {
+    fs.readFile(path.join(__dirname, 'guestbook_messages.json'), 'utf8', (err, data) => {
+        if (err) throw err;
+        let messages = JSON.parse(data);
+
+        // Add the new message
+        let newMessage = {
+            id: messages.length + 1,
+            Date: new Date(),
+            Name: req.body.name,
+            Country: req.body.country,
+            Message: req.body.message
+        };
+        messages.push(newMessage);
+
+        // Write updated data back to file
+        fs.writeFile(path.join(__dirname, 'guestbook_messages.json'), JSON.stringify(messages), (err) => {
+            if (err) throw err;
+            res.json(messages); // Send all messages as JSON
+        });
+    });
+});
+
 
 
 app.listen(3000, function() {
