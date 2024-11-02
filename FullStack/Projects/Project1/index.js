@@ -1,22 +1,26 @@
+//Haetaan express.js-moduuli ja node.js:stä fileservice- ja path-moduuli
 const express = require("express");
 var fs = require("fs");
 const path = require("path");
 
+//Luodaan express-sovellus ja body-parser url-koodattujen ja json-muotoisten tietojen käsittelyyn
 var app = express();
 var bodyParser = require("body-parser");
 
-//Lets take body-parser in use
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //staattiset tiedosto public-kansiossa, kuten html ja css-tiedostot
 
+
+//REITTI KOTISIVULLE / JUUREEN ja hakee kotisivun tiedot public-kansiosta
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 
+//REITTI VIERASKIRJAAN, jonne haetaan tiedot guestbook_messages.json -tiedostosta ja muodostetaan haetuista tiedoista taulukko
 app.get('/guestbook', function (req, res) {
 
     fs.readFile(path.join(__dirname, 'guestbook_messages.json'), 'utf8', (err, data) => {
@@ -36,7 +40,7 @@ app.get('/guestbook', function (req, res) {
         }
         results += '</table>';
 
-        // Send the guestbook.html file
+        // Muodostetaan sivu uudestaan taulukon kanssa    ---- Tähän olisi ehkä joku fiksumpikin tapa, jossa voisi vain lisätä taulun sivulle, joka oli jo valmiina
         res.send(`
         <!DOCTYPE html>
         <html lang="en">
@@ -82,11 +86,11 @@ app.get('/guestbook', function (req, res) {
 
 
 
+//REITTI UUDEN VIESTIN LÄHETTÄMISSIVULLE
 app.get('/newmessage', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'newmessage.html'));
 });
-
-//Route for form sending the POST data
+//haetaan aikaisemmat viestit ja lisätään uusi viesti
 app.post('/newmessage', function (req, res) {
     fs.readFile(path.join(__dirname, 'guestbook_messages.json'), 'utf8', (err, data) => {
         var messages = JSON.parse(data);
@@ -98,8 +102,8 @@ app.post('/newmessage', function (req, res) {
             "Country": req.body.country,
             "Message": req.body.message,
         });
-        //Write data to a file
-        fs.writeFile(path.join(__dirname, 'guestbook_messages.json'), JSON.stringify(messages), (err) => {
+        //kirjoitetaan/päivitetään tiedot json-tiedostoon
+        fs.writeFile(path.join(__dirname, 'guestbook_messages.json'), JSON.stringify(messages, null, 4), (err) => { /* stringifyssa null, 4 auttaa siihen, että tietue tallentuu sisennettynä json-tiedostoon yhden rivin sijaan */
             if (err) throw err;
             console.log('It\´s saved!');
             res.redirect('/guestbook');
@@ -107,16 +111,18 @@ app.post('/newmessage', function (req, res) {
     });
 });
 
+
+//REITTI AJAX-VIESTIT SIVULLE
 app.get('/ajaxmessage', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'ajaxmessage.html'));
 });
 
+//haetaan aikaisemmat viestit ja lisätään uusi viesti
 app.post('/ajaxmessage', function (req, res) {
     fs.readFile(path.join(__dirname, 'guestbook_messages.json'), 'utf8', (err, data) => {
         if (err) throw err;
         let messages = JSON.parse(data);
 
-        // Add the new message
         let newMessage = {
             id: messages.length + 1,
             Date: new Date(),
@@ -126,16 +132,16 @@ app.post('/ajaxmessage', function (req, res) {
         };
         messages.push(newMessage);
 
-        // Write updated data back to file
-        fs.writeFile(path.join(__dirname, 'guestbook_messages.json'), JSON.stringify(messages), (err) => {
+        // Kirjoitetaan / päivitetään tiedot json-tiedostoon
+        fs.writeFile(path.join(__dirname, 'guestbook_messages.json'), JSON.stringify(messages, null, 4), (err) => {
             if (err) throw err;
-            res.json(messages); // Send all messages as JSON
+            res.json(messages); // lähetetään tiedot 
         });
     });
 });
 
 
-
+//KÄYNNISTETÄÄN PAIKALLINEN SERVER
 app.listen(3000, function() {
     console.log("Server is running on port 3000");
 });
