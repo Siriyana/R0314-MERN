@@ -22,10 +22,10 @@ app.use(express.static(__dirname + "/public"));
 app.use(session({
     name: "session_demo",
     resave: true,
-    saveUninitialized: true,
-    secret: "secretly",
+    saveUninitialized: true,  // Korjattu: "saveUntilInitialized" -> "saveUninitialized"
+    secret: "secretkey",
     SameSite: "Lax",
-    // How long the session will be valid in milliseconds
+    // How long this session will be valid in milliseconds (60s * 1000ms * 30min)
     cookie: { maxAge: 60 * 1000 * 30 } // 30 minutes
 }));
 
@@ -40,33 +40,35 @@ app.post("/signin", function (request, response) {
     var con = mysql.createConnection({
         host: "localhost",
         user: "root",
-        password: "",
+        password: "", // Should not be empty
         database: "logindemo"
     });
 
-    // Create query
+    // Create query to database
     var query = "SELECT * FROM users WHERE email = ? AND password = ?";
     console.log(query);
 
-    //connect to database
-    con.connect(function(err) {
+    // Connect to database
+    con.connect(function (err) {
         if (err) {
             console.log("Error connecting to database");
             response.status(500).send("Database connection error");
             return;
         }
 
-        con.query(query, [email, pass], function(err, result) {
+        con.query(query, [email, pass], function (err, result) {
             if (err) {
                 console.log("Error in query");
                 response.status(500).send("Query error");
                 return;
-            } 
+            }
 
             console.log("Rows from query: " + result.length);
-            if (result.length > 0) {
+            if (result.length == 1) {
                 // If login is successful, store user data in session
-                request.session.user = result[0]; // Store the user data in the session
+                request.session.loggedin = true;
+                request.session.email = email;
+                console.log("User logged in: " + email);
                 response.redirect("/studentpages");
             } else {
                 response.status(401).send("Invalid credentials");
@@ -87,7 +89,7 @@ app.get("/blog", function (request, response) {
 
 app.get("/studentpages", function (request, response) {
     // Tarkistetaan, onko käyttäjä kirjautunut
-    if (request.session.user) {
+    if (request.session.loggedin) {
         response.status(200).sendFile(__dirname + "/secretpage.html"); // Lisää "/" polun alkuun
     } else {
         response.status(401).send("Please log in first");
