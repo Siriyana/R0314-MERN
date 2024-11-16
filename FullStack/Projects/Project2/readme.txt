@@ -15,3 +15,7 @@ TECHNOLOGIES USED:
 2.Express.js framework
 3.MongoDB and Mongoose for database
 4.Postman for testing API routes
+
+
+GIT REPOSITORY: https://github.com/Siriyana/R0314-MERN/tree/main/FullStack/Projects/Project2
+RENDER: https://r0314-mern-7y23.onrender.com
