@@ -1,5 +1,9 @@
-console.log('Current directory:', __dirname);
-require('dotenv').config();
+//RESTAPI-ROUTES FOR CAT-DATABASE IN MONGODB
+
+//DEFINING VARIABLES
+
+//console.log('Current directory:', __dirname); File-path checking, because there were issues
+require('dotenv').config();  //Loading environment variables from .env
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -9,22 +13,25 @@ const path = require("path");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+//Serving static files , not necessary in this project, but I like to have some concrete page, while testing
 app.use(express.static('public'));
 
-// Create a connection to mongodb
+
+
+// CREATING A CONNECTION TO MONGODB ATLAS AND CREATING SCHEMA
+
+//Environment variables that are not supposed to be seen publicly
 var user = process.env.MONGO_USERID;
 var passwd = process.env.MONGO_PW;
-
+//Creating mongoDB uri with the environment variables
 const uri = "mongodb+srv://" + user + ":" + passwd + "@veeraproject2.m3hql.mongodb.net/VeeraCatHouse?retryWrites=true&w=majority&appName=VeeraProject2";
-
-
-
-
+//Connection to MongoDB Atlas
 mongoose.connect(uri)
     .then(() => console.log("Mongoose connection established"))
     .catch((error) => console.log("Connection error: ", error));
 
-// Mongoose schema and model for 'Cat'-objects
+// Mongoose schema and model for 'Cat'-objects. Also validation rules
 const catSchema = new mongoose.Schema({
     name: { type: String, required: true, minlength: 3 },
     color: { type: String, required: true, minlength: 3 },
@@ -36,12 +43,16 @@ const catSchema = new mongoose.Schema({
     otherInfo: { type: String },
 });
 
-//SayHi-method
+//Defining a custom method to greet. Not necessary, but practice from lesson
 catSchema.methods.sayHi = function () {
     console.log(`Hello! My name is ${this.name}! I love ${this.favoriteActivity}`);
 };
 
 const Cat = mongoose.model("Cat", catSchema);
+
+
+
+//ROUTES
 
 //Route to homepage
 app.get('/', function(req, res){
