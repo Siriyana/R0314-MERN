@@ -52,7 +52,7 @@ app.get("*", function (req, res) {
 });
 
 // Web server by express
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 app.listen(PORT, function () {
     console.log("Example app is listening on port " + PORT);
 });

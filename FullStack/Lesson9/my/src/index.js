@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-//import './index.css';
-import App from './App';
-//import reportWebVitals from './reportWebVitals';
+import './styles.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const Button = ({ onClick, text }) => {
+  return <button onClick={onClick}>{text}</button>;
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Display = ({ counter, color }) => {
+  return (
+    <>
+      <h2 className={color}>Counter</h2>
+      <div>{counter}</div>
+    </>
+  );
+};
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+  const increaseByOne = () => setCounter(counter + 1);
+  const decreaseByOne = () => setCounter(counter - 1);
+  const setToZero = () => setCounter(0);
+
+  return (
+    <>
+      <Display counter={counter} color="green" />
+      Counter: {counter}
+      <div></div>
+      <button onClick={increaseByOne}>test</button>
+      <Button onClick={increaseByOne} text="plus" />
+      <Button onClick={setToZero} text="zero" />
+      <Button onClick={decreaseByOne} text="minut" />
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
