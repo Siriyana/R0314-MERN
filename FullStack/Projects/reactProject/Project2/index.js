@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors({
-    origin: 'http://localhost:3000'  // Frontpage REACT URL
+    origin: 'https://r0314-mern-cathouse.onrender.com/'  // Frontpage REACT URL
 }));
 
 
