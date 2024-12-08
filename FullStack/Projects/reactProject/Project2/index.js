@@ -16,10 +16,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 //CORS for all paths in the website
-const allowedOrigins = ['https://r0314-mern-cathouse.onrender.com'];
-app.use(cors({
-  origin: allowedOrigins
-}));
+const allowedOrigins = [
+    /https:\/\/r0314-mern-cathouse\.onrender\.com$/,   // Home page for REACT
+    /https:\/\/r0314-mern-cathouse\.onrender\.com\/api\/.*/  // Routes with /api + whatever
+  ];
+  
+  // CORS with different version from the origin URL
+  app.use(cors({
+    origin: function(origin, callback) {
+      // 
+      if (allowedOrigins.some(pattern => pattern.test(origin))) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  }));
 
 
 // CREATING A CONNECTION TO MONGODB ATLAS AND CREATING SCHEMA
