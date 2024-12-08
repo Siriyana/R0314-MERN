@@ -10,7 +10,7 @@ export default function CatView({ cat }) {
             <p>Location: {cat.location}</p>
             <p>Personality: {cat.personality}</p>
             <p>Favorite Activity: {cat.favoriteActivity}</p>
-            {cat.pictureUrl && <img class="catPic" src={cat.pictureUrl} alt="cat" />}
+            {cat.pictureUrl && <img className="catPic" src={cat.pictureUrl} alt="cat" />}
             <p>Other information: {cat.otherInfo}</p>
             <p>ID: {cat._id}</p>
         </div>
