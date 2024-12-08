@@ -14,7 +14,7 @@ function App() {
     const [selectedAction, setSelectedAction] = useState("getAll");
 
     //factions that can be chosen
-    const renderSelectedComponent = () => {
+    const selectComponent = () => {
         switch (selectedAction) {
             case "getAll":
                 return <GetAllCats />; //View all cats in the database
@@ -37,7 +37,7 @@ function App() {
     return (
         <>
           
-            <label htmlFor="action-select">Choose an action:</label>
+            <h2>Choose an action:</h2>
             <select
                 id="action-select"
                 value={selectedAction}
@@ -51,7 +51,7 @@ function App() {
                 <option value="delete">Delete a Cat</option>
             </select>
             <div className="action-container">
-                {renderSelectedComponent()}
+                {selectComponent()}
             </div>
         </>
     );
