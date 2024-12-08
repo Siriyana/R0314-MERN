@@ -1,10 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 
+//url to backend and API
 const API_LINK = "https://r0314-mern-catdatabase.onrender.com";
 const UPDATE_CAT = "/api/update/";
 
+//function to update cat information in database
 export default function UpdateCat() {
+    //defining the properties of the cat
     const [catId, setCatId] = useState("");
     const [name, setName] = useState("");
     const [color, setColor] = useState("");
@@ -15,9 +18,11 @@ export default function UpdateCat() {
     const [pictureUrl, setPictureUrl] = useState("");
     const [otherInfo, setOtherInfo] = useState("");
 
+    //form submission
     const handleUpdate = (e) => {
         e.preventDefault();
 
+        //creating cat-object from the given values
         const updatedCat = {
             name,
             color,
@@ -29,10 +34,12 @@ export default function UpdateCat() {
             otherInfo,
         };
 
+        //sending PUT request to update the cat data
         axios
             .put(`${API_LINK}${UPDATE_CAT}${catId}`, updatedCat)
             .then((response) => {
                 alert("Cat updated successfully!");
+                //clear the fields
                 setCatId("");
                 setName("");
                 setColor("");
@@ -48,6 +55,7 @@ export default function UpdateCat() {
             });
     };
 
+    //display the form and fields to update
     return (
         <form onSubmit={handleUpdate}>
             <h2>Update Cat</h2>

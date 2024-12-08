@@ -1,10 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 
+//link to backend and API
 const API_LINK = "https://r0314-mern-catdatabase.onrender.com";
 const ADD_CAT = "/api/add";
 
+//function to add cat to database
 export default function AddCat() {
+    //the set properties and make sure they are empty
     const [name, setName] = useState("");
     const [color, setColor] = useState("");
     const [age, setAge] = useState("");
@@ -16,17 +19,20 @@ export default function AddCat() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+
+        //some validation rules (same that are in the backend: name, color and location has to be at least three characters long)
         if (name.length < 3 || color.length < 3 || location.length < 3) {
             alert("Name, color, and location must each be at least 3 characters long.");
             return;
         }
     
+        //validating that age is a number and positive number
         if (isNaN(age) || age < 0) {
             alert("Age must be a valid number and cannot be negative.");
             return;
         }
     
+        //creating newCat object from the data
         const newCat = {
             name,
             color,
@@ -40,10 +46,12 @@ export default function AddCat() {
     
         console.log("Submitted cat data:", newCat);
     
+        //send POST request to add cat to database
         axios
             .post(`${API_LINK}${ADD_CAT}`, newCat)
             .then((response) => {
                 alert("Cat added successfully!");
+                //clear the fields
                 setName("");
                 setColor("");
                 setAge("");
@@ -59,6 +67,7 @@ export default function AddCat() {
             });
     };
 
+    //display the form and input fields on the html page
     return (
         <form onSubmit={handleSubmit}>
             <h2>Add a New Cat</h2>

@@ -1,5 +1,6 @@
 import React from "react";
 
+//funtionality to display cat-object information on the html-page
 export default function CatView({ cat }) {
     return (
         <div>

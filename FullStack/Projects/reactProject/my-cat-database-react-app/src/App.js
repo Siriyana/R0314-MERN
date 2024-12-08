@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./index.css";
+
+//Importing different component-modules, which have different functions/actions
 import CatSearch from "./Components/CatSearch";
 import CatAdd from "./Components/CatAdd";
 import CatUpdate from "./Components/CatUpdate";
@@ -8,28 +10,30 @@ import CatSearchID from "./Components/CatSearchID";
 import GetAllCats from "./Components/GetAllCats";
 
 function App() {
+    //default action is to view all cats
     const [selectedAction, setSelectedAction] = useState("getAll");
 
-    // Valittavissa olevat toiminnallisuudet
+    //factions that can be chosen
     const renderSelectedComponent = () => {
         switch (selectedAction) {
             case "getAll":
-                return <GetAllCats />;
+                return <GetAllCats />; //View all cats in the database
             case "search":
-                return <CatSearch />;
+                return <CatSearch />; //Search cats by name
             case "searchById":
-                return <CatSearchID />;
+                return <CatSearchID />; //Search cat by if
             case "add":
-                return <CatAdd />;
+                return <CatAdd />; //Add new cat to database
             case "update":
-                return <CatUpdate />;
+                return <CatUpdate />; //update information by existing id
             case "delete":
-                return <CatDelete />;
+                return <CatDelete />; //delete cat from the database
             default:
                 return <GetAllCats />;
         }
     };
 
+    //html-elements that are printed to index.html -page (dropdown menu)
     return (
         <>
           
