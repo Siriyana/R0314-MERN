@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_LINK = "http://localhost:3000";
+const API_LINK = "https://r0314-mern-catdatabase.onrender.com";
 const DELETE_CAT = "/api/delete"; 
 
 export default function DeleteCat() {

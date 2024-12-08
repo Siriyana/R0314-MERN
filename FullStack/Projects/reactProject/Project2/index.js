@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors({
-    origin: 'http://localhost:3001'  // React-sovelluksen URL
+    origin: 'http://localhost:3000'  // React-sovelluksen URL
 }));
 
 
@@ -147,7 +147,7 @@ app.get("*", (req, res) => {
 });
 
 // Server setup
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log("App is listening on port " + PORT);
 });

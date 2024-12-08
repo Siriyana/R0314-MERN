@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_LINK = "http://localhost:3000";
+const API_LINK = "https://r0314-mern-catdatabase.onrender.com";
 const ADD_CAT = "/api/add";
 
 export default function AddCat() {

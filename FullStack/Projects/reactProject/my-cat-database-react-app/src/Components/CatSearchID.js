@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CatView from "./CatView";
 
-const API_LINK = "http://localhost:3000";
+const API_LINK = "https://r0314-mern-catdatabase.onrender.com";
 const GET_ID = "/api/";
 
 export default function CatSearchID() {

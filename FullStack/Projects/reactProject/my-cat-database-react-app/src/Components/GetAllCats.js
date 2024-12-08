@@ -3,7 +3,7 @@ import axios from "axios";
 import CatList from "./CatList";
 import CatView from "./CatView";
 
-const API_LINK = "http://localhost:3000"; 
+const API_LINK = "https://r0314-mern-catdatabase.onrender.com"; 
 const GET_ALL_CATS = "/api/getall"; 
 
 export default function GetAllCat() {
