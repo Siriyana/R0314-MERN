@@ -15,8 +15,10 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
+//CORS for all paths in the website
+const allowedOrigins = ['https://r0314-mern-cathouse.onrender.com'];
 app.use(cors({
-    origin: 'https://r0314-mern-cathouse.onrender.com/'  // Frontpage REACT URL
+  origin: allowedOrigins
 }));
 
 
