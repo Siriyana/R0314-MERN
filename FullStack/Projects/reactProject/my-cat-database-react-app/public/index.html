@@ -26,18 +26,45 @@
     -->
     <title>React App</title>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  
+<body>
+
+  <header>
+      <h1>Veera´s Cathouse</h1>
+  <nav role="navigation">
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="https://r0314-mern-veeras-guestbook-project.onrender.com">Guestbook</a></li>
+      </ul>
+  </nav>
+
+
+  </header>
+
+  <main>
+
+    <div id="instructions">
+      <h1>Cat House</h1>
+      <p>Welcome to Veera´s cathouse!</p>
+      <br>
+      <p>You can view all cats or you can search cats in the cathouse by name or id.</p>
+      <p>You can also add new cats to the house, update information of existing cat or delete cat.</p>
+
+    </div>
+
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    <article>
+      <figure><img src="images/cats_house.png" alt="cats playing"></figure>
+    </article>
+
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <script type="module" src="../src/index.js"></script>
+</body>
 </html>

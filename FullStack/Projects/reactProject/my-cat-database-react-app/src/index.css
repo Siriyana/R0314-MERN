@@ -11,3 +11,137 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html {
+  background-color: black;
+  color: whitesmoke;
+}
+
+header {
+  background-image: url(../public/images/cats2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 10px;
+  margin: 12px 25px;
+  text-shadow: 2px 2px 6px black;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  width: 100%;
+  color: palevioletred;
+  text-align: center;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size:20px;
+  margin: 10px;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+table {
+  border-style: groove;
+  border-color: palevioletred;
+  border-radius: 5px;
+}
+
+
+th {
+  font-size: 20px;
+  padding: 6px;
+  margin: 0px;
+  border-style: none;
+  background-color: palevioletred;
+}
+
+
+
+td {
+  padding: 7px 10px;
+  border-style: none;
+}
+
+main {
+  padding: 10px;
+  margin: 10px 25px;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figure {
+  width: 50%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.catPic {
+  width: 250px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 300px;
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+}
+
+p {
+  margin: 0px;
+}
+
+h4 {
+  margin: 5px;
+}
+
+h4:hover {
+  color: pink;
+  cursor: pointer;
+}
+
+#instructions {
+  margin: 10px 20px 30px;
+}
